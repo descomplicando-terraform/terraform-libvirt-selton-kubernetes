@@ -47,6 +47,8 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Initialize Terraform
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
         run: terraform init
 
       - name: Run terraform validate
