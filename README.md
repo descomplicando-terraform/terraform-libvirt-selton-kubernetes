@@ -12,7 +12,6 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_libvirt"></a> [libvirt](#provider\_libvirt) | 0.7.6 |
-| <a name="provider_template"></a> [template](#provider\_template) | n/a |
 
 ## Modules
 
@@ -27,7 +26,6 @@
 | [libvirt_cloudinit_disk.commoninit](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/cloudinit_disk) | resource |
 | [libvirt_domain.kubernetes](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/domain) | resource |
 | [libvirt_volume.ubuntu-kubernetes](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/volume) | resource |
-| [template_file.user_data](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
 
 ## Inputs
 
