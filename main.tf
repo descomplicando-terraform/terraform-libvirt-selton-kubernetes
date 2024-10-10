@@ -4,6 +4,7 @@ module "groundwork" {
   pool   = var.pool
   libvirt_disk_path = var.libvirt_disk_path
 }
+  
 resource "libvirt_volume" "ubuntu-kubernetes" {
   count  = length(var.nodes)
   name   = "ubuntuqcow-${var.nodes[count.index]}"
