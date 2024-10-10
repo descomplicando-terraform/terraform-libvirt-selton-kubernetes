@@ -1,5 +1,5 @@
 module "groundwork" {
-  source = "git::https://github.com/descomplicando-terraform/terraform-libvirt-selton-groundwork.git"
+  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-module.git"
 
   nodes = var.nodes
 }
