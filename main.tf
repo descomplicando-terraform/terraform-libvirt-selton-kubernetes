@@ -24,7 +24,7 @@ users:
 EOF
 
   vars = {
-    hostname = "${var.nodes[count.index]}"
+    hostname = var.nodes[count.index]
   }
 }
 
@@ -32,7 +32,7 @@ resource "libvirt_cloudinit_disk" "commoninit" {
   count = length(var.nodes)
   name  = "${var.nodes[count.index]}-commoninit.iso"
   pool  = module.groundwork.libvirt_pool.kubernetes[count.index].name
-  user_data = template_file.user_data[count.index]
+  user_data = template_file.user_data[count.index].rendered
 }
 
 resource "libvirt_domain" "kubernetes" {
