@@ -1,3 +1,4 @@
+# tflint-ignore: terraform_module_pinned_source
 module "groundwork" {
   source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=main"
   pool   = var.pool
