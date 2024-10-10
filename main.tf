@@ -1,11 +1,11 @@
 module "groundwork" {
-  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-module.git?ref=main"
-  nodes = var.nodes
+  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=main"
+  pool   = var.pool
 }
 resource "libvirt_volume" "ubuntu-kubernetes" {
-  count  = length(groundwork_libvirt.var.nodes)
+  count  = length(var.nodes)
   name   = "ubuntuqcow-${var.nodes[count.index]}"
-  pool   = module.groundwork.libvirt_pool.kubernetes.name
+  pool   = module.groundwork["pool"]
   source = var.img
   format = "qcow2"
 }
@@ -30,7 +30,7 @@ resource "libvirt_volume" "ubuntu-kubernetes" {
 resource "libvirt_cloudinit_disk" "commoninit" {
   count = length(var.nodes)
   name  = "${var.nodes[count.index]}-commoninit.iso"
-  pool  = module.groundwork.libvirt_pool.kubernetes[count.index].name
+  pool  = module.groundwork["pool"]
   # user_data = template_file.user_data[count.index].rendered
 }
 
@@ -43,7 +43,7 @@ resource "libvirt_domain" "kubernetes" {
   cloudinit = libvirt_cloudinit_disk.commoninit[count.index].id
 
   network_interface {
-    network_name   = module.groundwork.libvirt_network.kubernetes-network[count.index].name
+    network_name   = module.groundwork["network"]
     wait_for_lease = true
     hostname       = var.nodes[count.index]
   }

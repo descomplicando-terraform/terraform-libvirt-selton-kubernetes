@@ -1,3 +1,9 @@
+variable "pool" {
+  type        = string
+  default     = "kubernetes"
+  description = "Name of the pool that will be created"
+}
+
 variable "nodes" {
   type        = list(any)
   default     = ["edge01", "edge02"]
