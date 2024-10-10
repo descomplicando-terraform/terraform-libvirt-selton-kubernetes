@@ -17,7 +17,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_groundwork"></a> [groundwork](#module\_groundwork) | git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git | main |
+| <a name="module_groundwork"></a> [groundwork](#module\_groundwork) | git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git | 0.0.1 |
 
 ## Resources
 
