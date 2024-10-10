@@ -2,6 +2,7 @@
 module "groundwork" {
   source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=main"
   pool   = var.pool
+  libvirt_disk_path = var.libvirt_disk_path
 }
 resource "libvirt_volume" "ubuntu-kubernetes" {
   count  = length(var.nodes)
