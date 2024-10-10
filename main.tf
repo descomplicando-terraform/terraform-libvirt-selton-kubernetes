@@ -11,28 +11,28 @@ resource "libvirt_volume" "ubuntu-kubernetes" {
   format = "qcow2"
 }
 
-data "template_file" "user_data" {
-  count    = length(var.nodes)
-  template = <<EOF
-#cloud-config
-ssh_pwauth: True
-users:
-  - name: ${nodes[count.index]}
-    lock_passwd: false
-    plain_text_passwd: ${var.nodes[count.index]} 
-    sudo: ALL=(ALL) NOPASSWD:ALL
-EOF
+# data "template_file" "user_data" {
+#   count    = length(var.nodes)
+#   template = <<EOF
+# #cloud-config
+# ssh_pwauth: True
+# users:
+#   - name: ${nodes[count.index]}
+#     lock_passwd: false
+#     plain_text_passwd: ${var.nodes[count.index]} 
+#     sudo: ALL=(ALL) NOPASSWD:ALL
+# EOF
 
-  vars = {
-    hostname = var.nodes[count.index]
-  }
-}
+#   vars = {
+#     hostname = var.nodes[count.index]
+#   }
+# }
 
 resource "libvirt_cloudinit_disk" "commoninit" {
   count = length(var.nodes)
   name  = "${var.nodes[count.index]}-commoninit.iso"
   pool  = module.groundwork.libvirt_pool.kubernetes[count.index].name
-  user_data = template_file.user_data[count.index].rendered
+  # user_data = template_file.user_data[count.index].rendered
 }
 
 resource "libvirt_domain" "kubernetes" {
