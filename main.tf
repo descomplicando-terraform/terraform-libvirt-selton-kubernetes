@@ -1,6 +1,6 @@
 # tflint-ignore: terraform_module_pinned_source
 module "groundwork" {
-  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=main"
+  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=0.0.1"
   pool   = var.pool
   libvirt_disk_path = var.libvirt_disk_path
 }
