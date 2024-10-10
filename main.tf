@@ -1,7 +1,10 @@
-module "groundwork" {
-  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-module.git"
-
+locals {
   nodes = var.nodes
+}
+
+module "groundwork" {
+  source = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-module.git?ref=main"
+  nodes = locals.nodes
 }
 resource "libvirt_volume" "ubuntu-kubernetes" {
   count  = length(groundwork_libvirt.var.nodes)
