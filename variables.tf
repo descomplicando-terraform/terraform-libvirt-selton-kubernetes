@@ -1,3 +1,9 @@
+variable "source" {
+  type        = string
+  default     = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=0.0.2"
+  description = "Release for terraform groundwork"
+}
+
 variable "pool" {
   type        = string
   default     = "kubernetes"
