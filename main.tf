@@ -1,5 +1,5 @@
 module "groundwork" {
-  source            = var.source
+  source            = var.groundwork_source
   pool              = var.pool
   libvirt_disk_path = var.libvirt_disk_path
   nodes             = var.nodes
