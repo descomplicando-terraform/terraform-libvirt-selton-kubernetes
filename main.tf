@@ -1,5 +1,5 @@
 module "groundwork" {
-  source            = git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=0.0.2
+  source            = "git@github.com:descomplicando-terraform/terraform-libvirt-selton-groundwork.git?ref=0.0.2"
   pool              = var.pool
   libvirt_disk_path = var.libvirt_disk_path
   nodes             = var.nodes
