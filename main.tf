@@ -67,6 +67,10 @@ resource "libvirt_domain" "kubernetes" {
     volume_id = libvirt_volume.ubuntu-kubernetes[count.index].id
   }
 
+  cpu {
+    mode = "host-passthrough"
+  }
+
   qemu_agent = true
 
 }
